@@ -1,0 +1,17 @@
+.movies {
+    padding-bottom: var(--footer-height);
+
+    .top {
+        padding: 50px 0 35px 0;
+
+        form {
+            display: flex;
+            width: 100%;
+            align-items: center;
+
+            .select {
+                margin-left: auto;
+            }
+        }
+    }
+}

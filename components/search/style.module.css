@@ -1,0 +1,23 @@
+.form {
+    display: flex;
+
+    input[type="text"] {
+        min-width: 370px;
+        height: 40px;
+        padding: 10px 15px;
+        border: 1px solid #d8d8d8;
+        box-shadow: 0 0 10px 5px #e8e8e8;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #017efe;
+        color: #fff;
+
+        &:hover {
+            background-color: #086cd2;
+        }
+    }
+}
