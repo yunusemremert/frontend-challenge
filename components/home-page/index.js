@@ -20,7 +20,7 @@ export const MENU = [
 
 function HomePage() {
    return (
-      <Container className={styles.container_inner}>
+      <Container className={styles.home_page}>
          <HomePageBox data={MENU} />
       </Container>
    )

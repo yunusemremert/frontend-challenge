@@ -1,9 +1,4 @@
-.container_inner {
+.home_page {
     padding-top: 50px;
-    padding-bottom: 282px;
-
-    @media (--t) {
-        padding-left: 0;
-        padding-right: 0;
-    }
+    padding-bottom: var(--footer-height);
 }

@@ -8,10 +8,6 @@
     &_inner {
         display: flex;
         width: 100%;
-
-        @media (--t) {
-            padding: 0;
-        }
     }
 
     .logo {

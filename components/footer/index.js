@@ -12,7 +12,7 @@ function Footer() {
 
    return (
       <div className={styles.footer}>
-         <Container className={styles.footer_inner}>
+         <Container>
             <div className={styles.nav}>
                <nav>
                   <a>Home</a>

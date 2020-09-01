@@ -3,4 +3,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 20px;
+
+    @media (--t) {
+        padding: 0;
+    }
 }

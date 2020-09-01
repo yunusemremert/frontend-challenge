@@ -9,10 +9,6 @@
     &_inner {
         flex: 1;
 
-        @media (--t) {
-            padding: 0;
-        }
-
         a {
             font-size: 1.4rem;
             color: #fff;

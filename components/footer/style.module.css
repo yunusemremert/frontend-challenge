@@ -8,12 +8,6 @@
     padding: 50px 0;
     color: rgb(186, 191, 195);
 
-    &_inner {
-        @media (--t) {
-            padding: 0;
-        }
-    }
-
     .nav {
         margin-bottom: 40px;
 
