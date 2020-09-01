@@ -1,10 +1,10 @@
 import Main from '../components/main'
+import HomePage from '../components/home-page'
 
 function Home() {
    return (
       <Main>
-         <div>Series</div>
-         <div>Movies</div>
+         <HomePage />
       </Main>
    )
 }

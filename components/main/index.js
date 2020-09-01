@@ -8,7 +8,7 @@ import styles from './style.module.css'
 
 function Main({ children }) {
    return (
-      <div>
+      <div className={styles.content}>
          <Head>
             <title>Frontend Challenge | Popular Titles</title>
             <link rel="icon" href="/favicon.ico" />

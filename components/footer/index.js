@@ -2,14 +2,14 @@ import Container from '../container'
 
 import styles from './style.module.css'
 
-function imageHover(data, type) {
-   const hover = data.target.getAttribute('data-hover-src')
-   const image = data.target.getAttribute('data-image-src')
-
-   data.target.setAttribute('src', type ? hover : image)
-}
-
 function Footer() {
+   const imageHover = (data, type) => {
+      const hover = data.target.getAttribute('data-hover-src')
+      const image = data.target.getAttribute('data-image-src')
+
+      data.target.setAttribute('src', type ? hover : image)
+   }
+
    return (
       <div className={styles.footer}>
          <Container className={styles.footer_inner}>
@@ -23,7 +23,9 @@ function Footer() {
                   <a>Manage Account</a>
                </nav>
                <span>
-                  Copyright ® 2020 DEMO Streaming. All Rights Reserved.
+                  Copyright ® 2020 DEMO{' '}
+                  <span style={{ color: '#828282' }}>Streaming</span>. All
+                  Rights Reserved.
                </span>
             </div>
             <div className={styles.bottom}>
