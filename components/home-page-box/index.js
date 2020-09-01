@@ -4,7 +4,7 @@ import styles from './style.module.css'
 
 function HomePageBox({ data }) {
    const style = {
-      backgroundImage: `url(/assets/placeholder.png)`,
+      backgroundImage: 'url(/assets/placeholder.png)',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center'
    }
