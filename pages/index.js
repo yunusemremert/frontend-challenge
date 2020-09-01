@@ -3,7 +3,7 @@ import HomePage from '../components/home-page'
 
 function Home() {
    return (
-      <Main>
+      <Main title="Popular Titles">
          <HomePage />
       </Main>
    )

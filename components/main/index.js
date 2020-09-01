@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import HeadSeo from '../head-seo'
 
 import Header from '../header'
 import BreadCrumb from '../breadcrumb'
@@ -6,15 +6,12 @@ import Footer from '../footer'
 
 import styles from './style.module.css'
 
-function Main({ children }) {
+function Main({ title, children }) {
    return (
       <div className={styles.content}>
-         <Head>
-            <title>Frontend Challenge | Popular Titles</title>
-            <link rel="icon" href="/favicon.ico" />
-         </Head>
+         <HeadSeo title={title} />
          <Header />
-         <BreadCrumb title="Popular Titles" />
+         <BreadCrumb title={title} />
          {children}
          <Footer />
       </div>
