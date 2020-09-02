@@ -5,6 +5,7 @@ import Select from '../select'
 import Box from '../box'
 
 import styles from './style.module.css'
+import stylesBox from '../box/style.module.css'
 
 function Series() {
    return (
@@ -19,7 +20,9 @@ function Series() {
                </div>
             </form>
          </div>
-         <div>
+         <div className={stylesBox.box}>
+            <Box>xxx</Box>
+            <Box>xxx</Box>
             <Box>xxx</Box>
             <Box>xxx</Box>
             <Box>xxx</Box>
