@@ -2,6 +2,7 @@ import Container from '../container'
 import HomePageBox from '../home-page-box'
 
 import styles from './style.module.css'
+import stylesBox from '../home-page-box/style.module.css'
 
 export const MENU = [
    {
@@ -21,7 +22,11 @@ export const MENU = [
 function HomePage() {
    return (
       <Container className={styles.home_page}>
-         <HomePageBox data={MENU} />
+         <ul className={stylesBox.box}>
+            {MENU.map((menu) => {
+               return <HomePageBox data={menu} />
+            })}
+         </ul>
       </Container>
    )
 }

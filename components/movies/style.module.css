@@ -9,9 +9,17 @@
             width: 100%;
             align-items: center;
 
+            .search {
+
+            }
+
             .select {
                 margin-left: auto;
             }
         }
+    }
+
+    .loading {
+        display: flex;
     }
 }

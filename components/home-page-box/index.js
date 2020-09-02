@@ -1,7 +1,5 @@
 import Link from 'next/link'
 
-import styles from './style.module.css'
-
 function HomePageBox({ data }) {
    const style = {
       backgroundImage: 'url(/assets/placeholder.png)',
@@ -10,18 +8,12 @@ function HomePageBox({ data }) {
    }
 
    return (
-      <ul className={styles.box}>
-         {data.map((menu) => {
-            return (
-               <Link href={menu.path} key={menu.key}>
-                  <li>
-                     <a style={style}>{menu.title}</a>
-                     <p>{menu.description}</p>
-                  </li>
-               </Link>
-            )
-         })}
-      </ul>
+      <Link href={data.path} key={data.key}>
+         <li>
+            <a style={style}>{data.title}</a>
+            <p>{data.description}</p>
+         </li>
+      </Link>
    )
 }
 
