@@ -10,15 +10,16 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "next": "9.5.2",
+    "next-redux-wrapper": "^6.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "swr": "^0.3.1"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "postcss-custom-media": "^7.0.8",
+    "redux-devtools-extension": "^2.13.8",
     "postcss-nested": "^4.2.3",
     "prettier": "^2.1.1"
   }
