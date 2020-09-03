@@ -8,13 +8,23 @@
             display: flex;
             width: 100%;
             align-items: center;
+            flex-direction: column;
+
+            @media (--t) {
+                flex-direction: row;
+            }
 
             .search {
 
             }
 
             .select {
-                margin-left: auto;
+                margin-top: 20px;
+
+                @media (--t) {
+                    margin-top: 0;
+                    margin-left: auto;
+                }
             }
         }
     }

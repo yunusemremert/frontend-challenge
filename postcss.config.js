@@ -5,12 +5,17 @@ module.exports = {
          importFrom: [
             {
                customMedia: {
-                  '--t': '(min-width: 980px)'
+                  '--m': '(min-width: 480px)'
                }
             },
             {
                customMedia: {
-                  '--d': '(min-width: 1270px)'
+                  '--t': '(min-width: 760px)'
+               }
+            },
+            {
+               customMedia: {
+                  '--d': '(min-width: 1024px)'
                }
             }
          ]
