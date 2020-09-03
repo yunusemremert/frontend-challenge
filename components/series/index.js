@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSeries } from '../../store/actions/seriesAction'
+import { fetchSeries, searchSeries } from '../../store/actions/seriesAction'
 
 import Container from '../container'
 import Search from '../search'
@@ -13,22 +13,58 @@ import styles from './style.module.css'
 import stylesBox from '../box/style.module.css'
 
 function Series() {
+   const [filter, setFilter] = useState(null)
+   const [order, setOrder] = useState(null)
+
    const dispatch = useDispatch()
-   const { posts, loading } = useSelector((state) => state.series)
+   const { limitPosts, filterPosts, loading } = useSelector(
+      (state) => state.series
+   )
 
    useEffect(() => {
       dispatch(fetchSeries())
    }, [])
 
+   // Input search
+   const changeFilter = (filter) => {
+      setFilter(filter)
+   }
+
+   useEffect(() => {
+      if (filter?.length >= 3) {
+         dispatch(searchSeries(filter, order))
+      } else if (filter) {
+         dispatch(searchSeries(null, order))
+      }
+   }, [filter])
+
+   // Select order
+   const changeOrderList = (order) => {
+      setOrder(order)
+
+      dispatch(searchSeries(filter, order))
+   }
+
+   const data =
+      filter?.length >= 3 || order
+         ? filterPosts.length > 0
+            ? filterPosts
+            : []
+         : limitPosts
+
    return (
       <Container className={styles.series}>
          <div className={styles.top}>
-            <form>
+            <form
+               onSubmit={(e) => {
+                  e.preventDefault()
+               }}
+            >
                <div className={styles.search}>
-                  <Search />
+                  <Search onChangeInput={changeFilter} />
                </div>
                <div className={styles.select}>
-                  <Select />
+                  <Select onChangeSelect={changeOrderList} />
                </div>
             </form>
          </div>
@@ -37,20 +73,24 @@ function Series() {
                <Loading />
             </div>
          )}
-         <div className={stylesBox.box}>
-            {posts.map((series, i) => {
-               const image = Object.values(series.images.PosterArt)
+         {!loading && data.length == 0 ? (
+            <div>Oops, something went wrong...</div>
+         ) : (
+            <div className={stylesBox.box}>
+               {data.map((series, i) => {
+                  const image = Object.values(series.images.PosterArt)
 
-               return (
-                  <Box
-                     title={series.title}
-                     image={image[0]}
-                     key={i}
-                     className={stylesBox.box}
-                  ></Box>
-               )
-            })}
-         </div>
+                  return (
+                     <Box
+                        key={i}
+                        title={series.title}
+                        image={image[0]}
+                        className={stylesBox.box}
+                     ></Box>
+                  )
+               })}
+            </div>
+         )}
       </Container>
    )
 }

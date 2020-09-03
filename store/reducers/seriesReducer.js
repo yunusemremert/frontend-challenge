@@ -1,7 +1,10 @@
 import * as types from '../types'
 
+import arrayFilter from '../../lib/arrayFilter'
+
 const initialState = {
    posts: [],
+   limitPosts: [],
    filterPosts: [],
    loading: true,
    error: null
@@ -10,20 +13,34 @@ const initialState = {
 export const seriesReducer = (state = initialState, action) => {
    switch (action.type) {
       case types.GET_SERIES:
-         const limitData = []
-         action.payload.forEach((series, i) => {
-            if (limitData.length <= 20 && series.programType == 'series') {
-               limitData.push(series)
-            }
-         })
-
          return {
             ...state,
-            posts: limitData,
+            posts: action.payload,
+            limitPosts: arrayFilter(action.payload, 'series'),
             filterPosts: [],
             loading: false,
             error: action.payload.message
          }
+      case types.SEARCH_SERIES:
+         const filteredSeries = action.payload
+            ? state.posts.filter((item) => {
+                 return (
+                    item.title
+                       .toLowerCase()
+                       .indexOf(action.payload.toLowerCase()) !== -1
+                 )
+              })
+            : state.posts
+
+         return {
+            ...state,
+            posts: state.posts,
+            limitPosts: state.limitPosts,
+            filterPosts: arrayFilter(filteredSeries, 'series', action.order),
+            loading: false,
+            error: null
+         }
+
       default:
          return state
    }

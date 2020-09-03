@@ -12,3 +12,11 @@ export const fetchMovies = () => async (dispatch) => {
       })
    }, 1000)
 }
+
+export const searchMovies = (filter, order) => (dispatch) => {
+   dispatch({
+      type: types.SEARCH_MOVIES,
+      payload: filter,
+      order: order
+   })
+}

@@ -12,3 +12,11 @@ export const fetchSeries = () => async (dispatch) => {
       })
    }, 1000)
 }
+
+export const searchSeries = (filter, order) => (dispatch) => {
+   dispatch({
+      type: types.SEARCH_SERIES,
+      payload: filter,
+      order: order
+   })
+}
