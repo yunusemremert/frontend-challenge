@@ -2,11 +2,15 @@
     display: flex;
 
     input[type="text"] {
-        min-width: 370px;
+        min-width: inherit;
         height: 40px;
         padding: 10px 15px;
         border: 1px solid #d8d8d8;
         box-shadow: 0 0 10px 5px #e8e8e8;
+
+        @media (--t) {
+            min-width: 370px;
+        }
     }
 
     button {

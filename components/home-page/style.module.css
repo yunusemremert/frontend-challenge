@@ -1,4 +1,8 @@
 .home_page {
     padding-top: 50px!important;
-    padding-bottom: var(--footer-height)!important;
+    padding-bottom: var(--footer-t-height)!important;
+
+    @media (--t) {
+        padding-bottom: var(--footer-height)!important;
+    }
 }
