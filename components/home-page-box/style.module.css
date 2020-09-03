@@ -24,15 +24,15 @@ ul.box {
             }
         }
 
-        &:hover p {
-            font-weight: 600;
-        }
-
         p {
             text-align: center;
             padding: 0 10px;
             margin-top: 10px;
             color: rgb(30, 30, 30);
+
+            &:hover  {
+                font-weight: 600;
+            }
         }
     }
 }

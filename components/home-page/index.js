@@ -24,7 +24,7 @@ function HomePage() {
       <Container className={styles.home_page}>
          <ul className={stylesBox.box}>
             {MENU.map((menu) => {
-               return <HomePageBox data={menu} />
+               return <HomePageBox key={menu.key} data={menu} />
             })}
          </ul>
       </Container>

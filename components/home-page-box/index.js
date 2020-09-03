@@ -8,7 +8,7 @@ function HomePageBox({ data }) {
    }
 
    return (
-      <Link href={data.path} key={data.key}>
+      <Link href={data.path}>
          <li>
             <a style={style}>{data.title}</a>
             <p>{data.description}</p>
