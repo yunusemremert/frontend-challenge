@@ -35,3 +35,6 @@ yarn-error.log*
 
 # idea
 .idea
+
+# jest test "snapshots" build json
+__snapshots__/

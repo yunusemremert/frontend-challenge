@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Jest & Enzyme Test
+First, run the development test:
+
+```bash
+npm run test
+# test start
+npm run test:update
+# test update (updateSnapshot)
+# all command package.json scripts in test
+```
+
 ## Getting Started
 
 First, run the development server:

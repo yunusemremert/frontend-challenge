@@ -9,7 +9,8 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:watchAll": "jest --watchAll"
+    "test:watchAll": "jest --watchAll",
+    "test:update": "jest --updateSnapshot"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -31,6 +32,7 @@
     "postcss-custom-media": "^7.0.8",
     "postcss-nested": "^4.2.3",
     "prettier": "^2.1.1",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4"
   }
 }
