@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:watchAll": "jest --watchAll"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -18,9 +22,15 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-jest": "^26.3.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
+    "jest": "^26.4.2",
     "postcss-custom-media": "^7.0.8",
-    "redux-devtools-extension": "^2.13.8",
     "postcss-nested": "^4.2.3",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "redux-devtools-extension": "^2.13.8"
   }
 }
