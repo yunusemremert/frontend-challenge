@@ -1,27 +1,22 @@
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-
+import { configure, render, shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
-const mockStore = configureStore([thunk])
 
-import { shallow, mount, render } from 'enzyme'
+import * as ReactReduxHooks from 'react-redux'
+import thunk from 'redux-thunk'
 
 import Movies from './index'
 
-/*jest.mock('react-redux', () => ({
-   useDispatch: () => {},
-   useSelector: () => ({
-      movies: {
-         limitPosts: [],
-         filterPosts: [],
-         loading: []
-      }
-   })
-}))*/
+describe('Movies', () => {
+   let wrapper
+   let useEffect
+   let store
 
-describe('My Connected React-Redux Component', () => {
-   const store = mockStore({
-      movies: {
+   const mockUseEffect = () => {
+      useEffect.mockImplementationOnce((f) => f())
+   }
+
+   beforeEach(() => {
+      store = configureStore([thunk])({
          limitPosts: [
             {
                title: 'Sherlock: The Abominable Bride',
@@ -35,25 +30,29 @@ describe('My Connected React-Redux Component', () => {
                releaseYear: '2020'
             }
          ],
-         filterPosts: [],
-         loading: []
-      }
+         loading: false
+      })
+
+      useEffect = jest.spyOn(React, 'useEffect')
+      mockUseEffect() // important to do it twice
+      mockUseEffect()
+
+      jest
+         .spyOn(ReactReduxHooks, 'useSelector')
+         .mockImplementation((state) => store.getState())
+
+      jest
+         .spyOn(ReactReduxHooks, 'useDispatch')
+         .mockImplementation(() => store.dispatch)
+
+      wrapper = shallow(
+         <ReactReduxHooks.Provider store={store}>
+            <Movies />
+         </ReactReduxHooks.Provider>
+      )
    })
 
-   //store.dispatch = jest.fn()
-
-   const comp = mount(
-      <Provider store={store}>
-         <Movies />
-      </Provider>
-   )
-
-   it('should render with given state from Redux store', () => {
-      expect(comp.find('Box').length).toEqual(1)
-   })
-
-   it('should dispatch an action on button click', () => {
-      // Next useEffect problem
-      //expect(render(comp)).toMatchSnapshot()
+   it('Render', () => {
+      expect(render(wrapper)).toMatchSnapshot()
    })
 })
