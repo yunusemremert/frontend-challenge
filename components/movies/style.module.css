@@ -2,7 +2,7 @@
     padding-bottom: var(--footer-t-height);
 
     @media (--t) {
-        padding-bottom: var(--footer-height);
+        padding-bottom: var(--footer-height)!important;
     }
 
     .top {
