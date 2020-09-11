@@ -33,7 +33,7 @@ function Series() {
    useEffect(() => {
       if (filter?.length >= 3) {
          dispatch(searchSeries(filter, order))
-      } else if (!filter) {
+      } else if (order) {
          dispatch(searchSeries(null, order))
       }
    }, [filter, order])
@@ -71,7 +71,7 @@ function Series() {
                <Loading />
             </div>
          )}
-         {!loading && data.length == 0 ? (
+         {filter && data.length == 0 ? (
             <div>Oops, something went wrong...</div>
          ) : (
             <div className={stylesBox.box}>

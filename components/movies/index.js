@@ -33,7 +33,7 @@ function Movies() {
    useEffect(() => {
       if (filter?.length >= 3) {
          dispatch(searchMovies(filter, order))
-      } else if (!filter) {
+      } else if (order) {
          dispatch(searchMovies(null, order))
       }
    }, [filter, order])
@@ -71,7 +71,7 @@ function Movies() {
                <Loading />
             </div>
          )}
-         {!loading && data.length == 0 ? (
+         {filter && data.length == 0 ? (
             <div>Oops, something went wrong...</div>
          ) : (
             <div className={stylesBox.box}>
