@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovies, searchMovies } from '../../store/actions/moviesAction'
 
@@ -26,24 +26,22 @@ function Movies() {
    }, [])
 
    // Input search
-   const changeFilter = (filter) => {
+   const changeFilter = useCallback((filter) => {
       setFilter(filter)
-   }
+   }, [])
 
    useEffect(() => {
       if (filter?.length >= 3) {
          dispatch(searchMovies(filter, order))
-      } else if (filter) {
+      } else if (!filter) {
          dispatch(searchMovies(null, order))
       }
-   }, [filter])
+   }, [filter, order])
 
    // Select order
-   const changeOrderList = (order) => {
+   const changeOrderList = useCallback((order) => {
       setOrder(order)
-
-      dispatch(searchMovies(filter, order))
-   }
+   }, [])
 
    const data =
       filter?.length >= 3 || order

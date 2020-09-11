@@ -17,4 +17,4 @@ function Search({ onChangeInput = () => {}, onSubmitForm = () => {} }) {
    )
 }
 
-export default Search
+export default React.memo(Search)

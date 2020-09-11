@@ -16,4 +16,4 @@ function Select({ onChangeSelect = () => {} }) {
    )
 }
 
-export default Select
+export default React.memo(Select)

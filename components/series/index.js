@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSeries, searchSeries } from '../../store/actions/seriesAction'
 
@@ -26,24 +26,22 @@ function Series() {
    }, [])
 
    // Input search
-   const changeFilter = (filter) => {
+   const changeFilter = useCallback((filter) => {
       setFilter(filter)
-   }
+   }, [])
 
    useEffect(() => {
       if (filter?.length >= 3) {
          dispatch(searchSeries(filter, order))
-      } else if (filter) {
+      } else if (!filter) {
          dispatch(searchSeries(null, order))
       }
-   }, [filter])
+   }, [filter, order])
 
    // Select order
-   const changeOrderList = (order) => {
+   const changeOrderList = useCallback((order) => {
       setOrder(order)
-
-      dispatch(searchSeries(filter, order))
-   }
+   }, [])
 
    const data =
       filter?.length >= 3 || order
